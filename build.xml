@@ -5,6 +5,11 @@
   <property name="build" location="build"/>
   <property name="dist"  location="dist"/>
   <property name="lib"  location="lib"/>-->
+
+  <propertyfile file="my.properties">
+    <entry  key="tstamp" type="date" value="now"/>
+  </propertyfile>
+
   <property file="config/project.properties"/>
 
   <tstamp>
@@ -36,7 +41,7 @@
 
   <target name="dist" depends="test" >
     <mkdir dir="${project.dist}"/>
-    <jar jarfile="${project.dist}/testProject_${TSTAMP}.jar" basedir="${project.dest}"/>
+    <jar jarfile="${project.dist}/testProject_${tstamp}.jar" basedir="${project.dest}"/>
   </target>
 
   <target name="clean">
