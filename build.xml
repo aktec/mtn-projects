@@ -30,13 +30,17 @@
 	</javac>
   </target>
 
-  <target name="dist" depends="compile" >
+  <target name="test" depends="compile">
+	<echo>Unit tests</echo>
+  </target>
+
+  <target name="dist" depends="test" >
     <mkdir dir="${project.dist}"/>
     <jar jarfile="${project.dist}/testProject_${TSTAMP}.jar" basedir="${project.dest}"/>
   </target>
 
   <target name="clean">
-    <delete dir="${build}"/>
-	<delete dir="${dest}"/>
+    <delete dir="${build.path}"/>
+	<delete dir="${dest.path}"/>
   </target>
 </project>
