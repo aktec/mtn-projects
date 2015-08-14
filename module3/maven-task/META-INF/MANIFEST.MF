@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Built-By: Student
+Build-Jdk: 1.7.0_79
+Created-By: Apache Maven 3.3.3
+Main-Class: com.test.Project
+Archiver-Version: Plexus Archiver
+
