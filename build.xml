@@ -67,6 +67,7 @@
 	  </tarfileset>
 	  <tarfileset dir=".">
     	<include name="config/project.properties"/>
+    	<include name="lib/commons-collections-3.2.1.jar"/>
 	  </tarfileset>
 	</tar>
   </target>
