@@ -18,8 +18,8 @@
   </target>
 
   <target name="dist" depends="compile" >
-    <mkdir dir="${dist}/lib"/>
-    <jar jarfile="${dist}/lib/testProject.jar" basedir="${build}"/>
+    <mkdir dir="${dist}"/>
+    <jar jarfile="${dist}/testProject.jar" basedir="${build}"/>
   </target>
 
   <target name="clean">
