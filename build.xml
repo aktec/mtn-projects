@@ -5,7 +5,7 @@
       <format property="TSTAMP" pattern="yyyyMMdd-HHmm"  locale="en,US" />
     </tstamp> -->
     <propertyfile file="config/project.properties">
-      <entry  key="tstamp" type="date" value="now"/>
+      <entry  key="tstamp" type="date" value="now" pattern="yyyyMMdd-HHmm"/>
     </propertyfile>
 
     <property file="config/project.properties"/>
