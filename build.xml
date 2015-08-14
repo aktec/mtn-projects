@@ -37,16 +37,12 @@
   </target>
 
   <target name="test" depends="compile">
-	<echo message="Unit Tests"/>
 	<junit printsummary="yes">
 	  <classpath>
 	    <pathelement location="${test.dest}"/>
        	<pathelement path="${lib.src}/junit-4.11.jar"/>
        	<pathelement path="${lib.src}/hamcrest-core-1.3.jar"/>
 	  </classpath>
-
-	  <formatter type="plain"/>
-
   	  <test name="com.test.UnitTest" outfile="${test.dest}/result">
 	    <formatter type="xml"/>
 	  </test>
@@ -54,7 +50,11 @@
   </target>
 
   <target name="jar" depends="test" >
-    <jar jarfile="${project.jar}/testProject.jar" basedir="${project.dest}"/>
+    <jar jarfile="${project.jar}/testProject.jar" basedir="${project.dest}">
+	  <manifest>
+    	<attribute name="Main-Class" value="com.test.Project"/>
+	  </manifest>
+	</jar>
   </target>
 
   <target name="dist" depends="jar">
