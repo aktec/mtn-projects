@@ -32,7 +32,7 @@
 
   <target name="dist" depends="compile" >
     <mkdir dir="${project.dist}"/>
-    <jar jarfile="${project.dist}/testProject_${adate}.jar" basedir="${project.dest}"/>
+    <jar jarfile="${project.dist}/testProject_${TSTAMP}.jar" basedir="${project.dest}"/>
   </target>
 
   <target name="clean">
