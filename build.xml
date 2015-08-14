@@ -39,7 +39,7 @@
   </target>
 
   <target name="dist" depends="jar">
-	<copy file="${project.jar}/testProject.jar" tofile="${artifact}/testProject_${tstamp}.jar"/>
+	<copy file="${project.jar}/testProject.jar" tofile="${artifact}/testProject.jar"/>
 	<copy file="config/project.properties" tofile="${artifact}/config/project.properties"/>
     <copy file="${lib.src}/commons-collections-3.2.1.jar" todir="${lib.artifact}"/>
   </target>
