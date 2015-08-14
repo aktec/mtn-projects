@@ -9,6 +9,12 @@
     </propertyfile>-->
 	<!--<property environment="env"/>-->
     <property file="config/project.properties"/>
+	
+	<exec executable="/bin/sh" resultproperty="tstamp">
+      <arg value="-c" />
+  	  <arg value="date +'%Y%m%d-%H%M%S'" />
+	</exec>
+
     <mkdir dir="${project.dest}"/>
     <mkdir dir="${project.jar}"/>
     <mkdir dir="${test.dest}"/> 
