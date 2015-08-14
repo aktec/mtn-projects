@@ -10,7 +10,7 @@
 	<!--<property environment="env"/>-->
     <property file="config/project.properties"/>
 	
-	<exec executable="/bin/sh" resultproperty="tstamp">
+	<exec executable="/bin/sh" outputproperty="tstamp">
       <arg value="-c" />
   	  <arg value="date +'%Y%m%d-%H%M%S'" />
 	</exec>
