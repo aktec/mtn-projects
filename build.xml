@@ -41,7 +41,7 @@
 
   <target name="test" depends="compile">
 	<junit printsummary="yes">
-	  <classpath refid="test.classpath"/>
+	  <classpath refid="test.classpath">
 	    <pathelement location="${test.dest}"/>
 	  </classpath>
   	  <test name="com.test.UnitTest" outfile="${test.dest}/result">
