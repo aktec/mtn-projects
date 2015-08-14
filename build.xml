@@ -5,9 +5,11 @@
   <property name="build" location="build"/>
   <property name="dist"  location="dist"/>
   <property name="lib"  location="lib"/>-->
-  <propertyfile file="config/project.properties">
-	<entry  key="adate" type="date" value="now"/>
-  </propertyfile>
+  <property file="config/project.properties"/>
+
+  <tstamp>
+      <format property="TSTAMP" pattern="yyyyMMdd-HHmm"  locale="en,US" />
+  </tstamp>
 
   <target name="init">
     <mkdir dir="${project.dest}"/>
