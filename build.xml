@@ -4,10 +4,10 @@
 <!--    <tstamp>
       <format property="TSTAMP" pattern="yyyyMMdd-HHmm"  locale="en,US" />
     </tstamp> -->
-    <propertyfile file="config/project.properties">
+<!--    <propertyfile file="config/project.properties">
       <entry  key="tstamp" type="date" value="now" pattern="yyyyMMdd-HHmmss"/>
-    </propertyfile>
-	<property environment="env"/>
+    </propertyfile>-->
+	<!--<property environment="env"/>-->
     <property file="config/project.properties"/>
     <mkdir dir="${project.dest}"/>
     <mkdir dir="${project.jar}"/>
@@ -31,7 +31,7 @@
   </target>
 
   <target name="test" depends="compile">
-	<echo message="${env}"/>
+	<echo message="Unit Tests"/>
   </target>
 
   <target name="jar" depends="test" >
