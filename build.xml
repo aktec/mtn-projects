@@ -31,8 +31,7 @@
   </target>
 
   <target name="jar" depends="test" >
-    <mkdir dir="${project.dist}"/>
-    <jar jarfile="${project.jar}/testProject.jar" basedir="${project.jar}"/>
+    <jar jarfile="${project.jar}/testProject.jar" basedir="${project.dest}"/>
   </target>
 
   <target name="dist" depends="jar">
