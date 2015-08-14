@@ -1,10 +1,10 @@
-<project name="TestProject" default="dist" basedir=".">
+<project name="TestProject" default="dist" basedir="./module3/ant-task">
 
-  <property name="src" location="module3/ant-task/src"/>
-  <property name="test" location="module3/ant-task/test"/>
-  <property name="build" location="module3/ant-task/build"/>
-  <property name="dist"  location="module3/ant-task/dist"/>
-  <property name="lib"  location="module3/ant-task/lib"/>
+  <property name="src" location="src"/>
+  <property name="test" location="test"/>
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist"/>
+  <property name="lib"  location="lib"/>
 
   <target name="init">
     <mkdir dir="${build}/lib"/>
