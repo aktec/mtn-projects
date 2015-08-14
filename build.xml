@@ -19,7 +19,8 @@
 	</javac>
     <javac srcdir="${test}" destdir="${build}/test">
 		<classpath>
-        	<pathelement path="${lib}/commons-collections-3.2.1.jar"/>
+	       	<pathelement path="${lib}/junit-4.11.jar"/>
+        	<pathelement path="${lib}/hamcrest-core-1.3.jar"/>
     	</classpath>
 	</javac>
   </target>
