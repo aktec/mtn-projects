@@ -1,0 +1,36 @@
+<project name="TestProject" default="dist" basedir=".">
+
+  <property name="src" location="module3/ant-task/src"/>
+  <property name="test" location="module3/ant-task/test"/>
+  <property name="build" location="module3/ant-task/build"/>
+  <property name="dist"  location="module3/ant-task/dist"/>
+  <property name="lib"  location="module3/ant-task/lib"/>
+
+  <target name="init">
+    <mkdir dir="${build}/lib"/>
+    <mkdir dir="${build}/test"/>
+  </target>
+
+  <target name="compile" depends="init" >
+    <javac includeantruntime="false" srcdir="${src}" destdir="${build}/lib">
+		<classpath>
+        	<pathelement path="${lib}/commons-collections-3.2.1.jar"/>
+    	</classpath>
+	</javac>
+    <javac includeantruntime="false" srcdir="${test}" destdir="${build}/test">
+		<classpath>
+	       	<pathelement path="${lib}/junit-4.11.jar"/>
+        	<pathelement path="${lib}/hamcrest-core-1.3.jar"/>
+    	</classpath>
+	</javac>
+  </target>
+
+  <target name="dist" depends="compile" >
+    <mkdir dir="${dist}"/>
+    <jar jarfile="${dist}/testProject.jar" basedir="${build}"/>
+  </target>
+
+  <target name="clean">
+    <delete dir="${build}"/>
+  </target>
+</project>

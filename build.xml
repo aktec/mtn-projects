@@ -1,36 +1,40 @@
 <project name="TestProject" default="dist" basedir="./module3/ant-task">
 
-  <property name="src" location="src"/>
+  <!--<property name="src" location="src"/>
   <property name="test" location="test"/>
   <property name="build" location="build"/>
   <property name="dist"  location="dist"/>
-  <property name="lib"  location="lib"/>
+  <property name="lib"  location="lib"/>-->
+  <propertyFile file="config/project.properties">
+	<entry  key="adate" type="date" value="now"/>
+  </propertyFile>
 
   <target name="init">
-    <mkdir dir="${build}/lib"/>
-    <mkdir dir="${build}/test"/>
+    <mkdir dir="${project.dest}"/>
+    <mkdir dir="${test.dest}"/>
   </target>
 
   <target name="compile" depends="init" >
-    <javac includeantruntime="false" srcdir="${src}" destdir="${build}/lib">
+    <javac includeantruntime="false" srcdir="${project.src}" destdir="${project.src}">
 		<classpath>
-        	<pathelement path="${lib}/commons-collections-3.2.1.jar"/>
+        	<pathelement path="${lib.src}/commons-collections-3.2.1.jar"/>
     	</classpath>
 	</javac>
-    <javac includeantruntime="false" srcdir="${test}" destdir="${build}/test">
+    <javac includeantruntime="false" srcdir="${test.src}" destdir="${test.dest}">
 		<classpath>
-	       	<pathelement path="${lib}/junit-4.11.jar"/>
-        	<pathelement path="${lib}/hamcrest-core-1.3.jar"/>
+	       	<pathelement path="${lib.src}/junit-4.11.jar"/>
+        	<pathelement path="${lib.src}/hamcrest-core-1.3.jar"/>
     	</classpath>
 	</javac>
   </target>
 
   <target name="dist" depends="compile" >
-    <mkdir dir="${dist}"/>
-    <jar jarfile="${dist}/testProject.jar" basedir="${build}"/>
+    <mkdir dir="${project.dist}"/>
+    <jar jarfile="${project.dist}/testProject_${adate}.jar" basedir="${project.dest}"/>
   </target>
 
   <target name="clean">
     <delete dir="${build}"/>
+	<delete dir="${dest}"/>
   </target>
 </project>
