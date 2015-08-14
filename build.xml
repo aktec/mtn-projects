@@ -1,9 +1,13 @@
 <project name="TestProject" default="dist" basedir="./module3/ant-task">
 
   <target name="init">
-    <tstamp>
+<!--    <tstamp>
       <format property="TSTAMP" pattern="yyyyMMdd-HHmm"  locale="en,US" />
-    </tstamp>
+    </tstamp> -->
+    <propertyfile file="config/project.properties">
+      <entry  key="tstamp" type="date" value="now"/>
+    </propertyfile>
+
     <property file="config/project.properties"/>
     <mkdir dir="${project.dest}"/>
     <mkdir dir="${project.jar}"/>
