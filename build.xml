@@ -65,7 +65,7 @@
 	  <tarfileset dir="${project.jar}">
     	<include name="testProject.jar"/>
 	  </tarfileset>
-	  <tarfileset dir="config"">
+	  <tarfileset dir="config">
     	<include name="project.properties"/>
 	  </tarfileset>
 	</tar>
