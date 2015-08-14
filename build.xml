@@ -6,17 +6,12 @@
   <property name="dist"  location="dist"/>
   <property name="lib"  location="lib"/>-->
 
-  <propertyfile file="my.properties">
-    <entry  key="tstamp" type="date" value="now"/>
-  </propertyfile>
-
-  <property file="config/project.properties"/>
-
-  <tstamp>
-      <format property="TSTAMP" pattern="yyyyMMdd-HHmm"  locale="en,US" />
-  </tstamp>
 
   <target name="init">
+    <tstamp>
+      <format property="TSTAMP" pattern="yyyyMMdd-HHmm"  locale="en,US" />
+    </tstamp>
+    <property file="config/project.properties"/>
     <mkdir dir="${project.dest}"/>
     <mkdir dir="${test.dest}"/>
   </target>
@@ -39,9 +34,13 @@
 	<echo>Unit tests</echo>
   </target>
 
-  <target name="dist" depends="test" >
+  <target name="jar" depends="test" >
     <mkdir dir="${project.dist}"/>
-    <jar jarfile="${project.dist}/testProject_${tstamp}.jar" basedir="${project.dest}"/>
+    <jar jarfile="${project.dist}/testProject_${TSTAMP}.jar" basedir="${project.dest}"/>
+  </target>
+
+  <target name="dist" depends="jar">
+	<copy
   </target>
 
   <target name="clean">
