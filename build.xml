@@ -19,7 +19,6 @@
     <mkdir dir="${project.jar}"/>
     <mkdir dir="${test.dest}"/> 
     <mkdir dir="${artifact}"/>
-    <mkdir dir="${lib.artifact}"/>
 
 	<path id="test.classpath">
       <pathelement location="${test.dest}"/>
