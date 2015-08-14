@@ -47,7 +47,7 @@
 
 	  <formatter type="plain"/>
 
-  	  <test name="com.test.UnitTest" output="${test.dest}/result">
+  	  <test name="com.test.UnitTest" outfile="${test.dest}/result">
 	    <formatter type="xml"/>
 	  </test>
 	</junit>
