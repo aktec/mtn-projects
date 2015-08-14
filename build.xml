@@ -38,9 +38,7 @@
   <target name="dist" depends="jar">
 	<copy file="${project.jar}/testProject.jar" tofile="${artifact}/testProject_${TSTAMP}.jar"/>
 	<copy file="config/project.properties" tofile="${artifact}/config/project.properties"/>
-    <copy todir="${lib.articact}">
-      <fileset dir="${lib.src}"/>
-    </copy>
+    <copy file="${lib.src}/commons-collections-3.2.1.jar" todir="${lib.artifact}"/>
   </target>
 
   <target name="clean">
