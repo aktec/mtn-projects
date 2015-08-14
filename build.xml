@@ -38,6 +38,19 @@
 
   <target name="test" depends="compile">
 	<echo message="Unit Tests"/>
+	<junit printsummary="yes" haltonfailure="yes">
+	  <classpath>
+	    <pathelement location="${test.dest}"/>
+       	<pathelement path="${lib.src}/junit-4.11.jar"/>
+	  </classpath>
+
+	  <formatter type="plain"/>
+
+  	  <test name="com.test.UnitTest" haltonfailure="no" outfile="result">
+    	<formatter type="xml"/>
+	  </test>
+
+	</junit>
   </target>
 
   <target name="jar" depends="test" >
