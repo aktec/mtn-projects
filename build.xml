@@ -1,16 +1,23 @@
 <project name="TestProject" default="dist" basedir=".">
 
   <property name="src" location="module3/ant-task/src"/>
+  <property name="test" location="module3/ant-task/test"/>
   <property name="build" location="module3/ant-task/build"/>
   <property name="dist"  location="module3/ant-task/dist"/>
   <property name="lib"  location="module3/ant-task/lib"/>
 
   <target name="init">
-    <mkdir dir="${build}"/>
+    <mkdir dir="${build}/lib"/>
+    <mkdir dir="${build}/test"/>
   </target>
 
   <target name="compile" depends="init" >
-    <javac srcdir="${src}" destdir="${build}">
+    <javac srcdir="${src}" destdir="${build}/lib">
+		<classpath>
+        	<pathelement path="${lib}/commons-collections-3.2.1.jar"/>
+    	</classpath>
+	</javac>
+    <javac srcdir="${test}" destdir="${build}/test">
 		<classpath>
         	<pathelement path="${lib}/commons-collections-3.2.1.jar"/>
     	</classpath>
@@ -24,6 +31,5 @@
 
   <target name="clean">
     <delete dir="${build}"/>
-    <!--<delete dir="${dist}"/>-->
   </target>
 </project>
