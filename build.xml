@@ -8,13 +8,13 @@
       <entry  key="tstamp" type="date" value="now" pattern="yyyyMMdd-HHmmss"/>
     </propertyfile>-->
 	<!--<property environment="env"/>-->
-    <property file="config/project.properties"/>
-	
-	<exec executable="/bin/sh" outputproperty="timeexec">
+	<exec executable="/bin/sh" outputproperty="tstamp">
       <arg value="-c" />
   	  <arg value="date +'%Y%m%d-%H%M%S'" />
 	</exec>
-		<echo message="${timeexec}"/>
+
+    <property file="config/project.properties"/>
+	
     <mkdir dir="${project.dest}"/>
     <mkdir dir="${project.jar}"/>
     <mkdir dir="${test.dest}"/> 
