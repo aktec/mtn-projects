@@ -62,10 +62,10 @@
 	<copy file="config/project.properties" tofile="${artifact}/config/project.properties"/>
     <copy file="${lib.src}/commons-collections-3.2.1.jar" todir="${lib.artifact}"/> -->
 	<tar destfile="${artifact}/Project_${tstamp}.tar.gz" compression="gzip">
-	  <tarfileset dir=".">
+	  <tarfileset dir="..">
     	<include name="${project.jar}/testProject.jar"/>
 	  </tarfileset>
-	  <tarfileset dir="./config">
+	  <tarfileset fullpath="./config">
     	<include name="config/project.properties"/>
 	  </tarfileset>
 	</tar>
