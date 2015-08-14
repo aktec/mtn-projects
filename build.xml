@@ -31,7 +31,7 @@
   </target>
 
   <target name="test" depends="compile">
-	<echo>${env}</echo>
+	<echo message="ANT_HOME is set to = ${env.ANT_HOME}"/>
   </target>
 
   <target name="jar" depends="test" >
