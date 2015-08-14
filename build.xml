@@ -1,23 +1,19 @@
 <project name="TestProject" default="dist" basedir="./module3/ant-task">
 
-  <!--<property name="src" location="src"/>
-  <property name="test" location="test"/>
-  <property name="build" location="build"/>
-  <property name="dist"  location="dist"/>
-  <property name="lib"  location="lib"/>-->
-
-
   <target name="init">
     <tstamp>
       <format property="TSTAMP" pattern="yyyyMMdd-HHmm"  locale="en,US" />
     </tstamp>
     <property file="config/project.properties"/>
     <mkdir dir="${project.dest}"/>
-    <mkdir dir="${test.dest}"/>
+    <mkdir dir="${project.jar}"/>
+    <mkdir dir="${test.dest}"/> 
+    <mkdir dir="${artifact}"/>
+    <mkdir dir="${lib.artifact}"/>
   </target>
 
   <target name="compile" depends="init" >
-    <javac includeantruntime="false" srcdir="${project.src}" destdir="${project.src}">
+    <javac includeantruntime="false" srcdir="${project.src}" destdir="${project.dest}">
 		<classpath>
         	<pathelement path="${lib.src}/commons-collections-3.2.1.jar"/>
     	</classpath>
@@ -36,19 +32,18 @@
 
   <target name="jar" depends="test" >
     <mkdir dir="${project.dist}"/>
-    <jar jarfile="${project.dest}/testProject.jar" basedir="${project.dest}"/>
+    <jar jarfile="${project.dest}/testProject.jar" basedir="${project.jar}"/>
   </target>
 
   <target name="dist" depends="jar">
-	<copy file="${project.dest}/testProject.jar" tofile="${project.dist}/testProject_${TSTAMP}.jar"/>
-	<copy file="config/project.properties" tofile="${project.dist}/config/project.properties"/>
-    <copy todir="${project.dist}">
+	<copy file="${project.jar}/testProject.jar" tofile="${artifact}/testProject_${TSTAMP}.jar"/>
+	<copy file="config/project.properties" tofile="${artifact}/config/project.properties"/>
+    <copy todir="${lib.articact}">
       <fileset dir="${lib.src}"/>
     </copy>
   </target>
 
   <target name="clean">
-    <delete dir="${build.path}"/>
-	<delete dir="${dest.path}"/>
+    <delete dir="${build}"/>
   </target>
 </project>
