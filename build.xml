@@ -36,11 +36,15 @@
 
   <target name="jar" depends="test" >
     <mkdir dir="${project.dist}"/>
-    <jar jarfile="${project.dist}/testProject_${TSTAMP}.jar" basedir="${project.dest}"/>
+    <jar jarfile="${project.dest}/testProject.jar" basedir="${project.dest}"/>
   </target>
 
   <target name="dist" depends="jar">
-	<copy
+	<copy file="${project.dest}/testProject.jar" tofile="${project.dist}/testProject_${TSTAMP}.jar"/>
+	<copy file="config/project.properties" tofile="${project.dist}/config/project.properties"/>
+    <copy todir="${project.dist}">
+      <fileset dir="${lib.src}"/>
+    </copy>
   </target>
 
   <target name="clean">
