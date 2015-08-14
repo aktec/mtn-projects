@@ -42,7 +42,7 @@
 
   <target name="test" depends="compile">
 	<junit printsummary="yes">
-	  <classpath refid="test.classpath">
+	  <classpath refid="test.classpath"/>
   	  <test name="com.test.UnitTest" outfile="${test.dest}/result">
 	    <formatter type="xml"/>
 	  </test>
