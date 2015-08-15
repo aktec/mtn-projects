@@ -6,7 +6,9 @@ import org.apache.commons.collections.Predicate;
 class Project {
 
   //void test
-  // do_nothing
+  /*
+   *  do_nothing
+   */
   public static void test() {
     System.out.println("test");
   }
